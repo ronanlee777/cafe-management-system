@@ -130,8 +130,11 @@
     <Content Include="CustomerRegistration.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="ManageMenu.aspx" />
+    <Content Include="MyOrders.aspx" />
     <Content Include="OrderCheckout.aspx" />
+    <Content Include="PaymentDetails.aspx" />
     <Content Include="PlaceOrders.aspx" />
+    <Content Include="Profile.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -178,6 +181,13 @@
     <Compile Include="ManageMenu.aspx.designer.cs">
       <DependentUpon>ManageMenu.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MyOrders.aspx.cs">
+      <DependentUpon>MyOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyOrders.aspx.designer.cs">
+      <DependentUpon>MyOrders.aspx</DependentUpon>
+    </Compile>
     <Compile Include="OrderCheckout.aspx.cs">
       <DependentUpon>OrderCheckout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -185,12 +195,26 @@
     <Compile Include="OrderCheckout.aspx.designer.cs">
       <DependentUpon>OrderCheckout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PaymentDetails.aspx.cs">
+      <DependentUpon>PaymentDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentDetails.aspx.designer.cs">
+      <DependentUpon>PaymentDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PlaceOrders.aspx.cs">
       <DependentUpon>PlaceOrders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PlaceOrders.aspx.designer.cs">
       <DependentUpon>PlaceOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration.aspx.cs">

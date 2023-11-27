@@ -60,17 +60,24 @@
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <a href="PlaceOrder.aspx">Place Order</a>
+     <div class="navbar">
+        <div class="menu">
+            <a href="CustomerHomePage.aspx">Home</a>
+        <a href="PlaceOrders.aspx">Place Order</a>
         <a href="MyOrders.aspx">My Orders</a>
         <a href="Profile.aspx">Profile</a>
-        <a href="Login.aspx" style="float:right;">Sign Out</a>
+        
+        </div>
+        <div class="sign-out">
+            <a href="LoginPage.aspx" style="float:right; background-color: red; padding: 10px 15px; border-radius: 4px; color: white; text-decoration: none;">Sign Out</a>
+        </div>
     </div>
 
     <h1>Welcome <asp:Label ID="lblCustomerName" runat="server"></asp:Label></h1>
 
     <div class="button-container">
-        <button onclick="window.location.href='PlaceOrder.aspx'">Place Order</button>
+
+        <button onclick="window.location.href='PlaceOrders.aspx'">Place Order</button>
         <button onclick="window.location.href='MyOrders.aspx'">My Orders</button>
         <button onclick="window.location.href='Profile.aspx'">Profile</button>
     </div>

@@ -40,6 +40,9 @@ namespace DBProj
                                     case 1: // Admin
                                         Response.Redirect("ManageMenu.aspx");
                                         break;
+                                    case 2: // cashier
+                                        Response.Redirect("PaymentDetails.aspx");
+                                        break;
                                     case 3: // Customer
                                         Response.Redirect("PlaceOrders.aspx");
                                         break;

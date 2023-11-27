@@ -4,31 +4,74 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Add Menu</title>
-    <style>
+        <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column; /* Updated to column layout */
             height: 100vh;
         }
 
+        .navbar {
+            background-color: #f28e63;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .navbar .menu {
+            margin-left: 20px;
+        }
+
+        .navbar .menu a {
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .navbar .menu a:hover {
+            background-color: #d27657;
+            color: black;
+        }
+
+        .navbar .sign-out {
+            margin-right: 20px;
+        }
+
+        .navbar button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .navbar button:hover {
+            background-color: #0056b3;
+        }
+
         #leftSide {
-            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: white;
+            padding: 20px;
         }
 
         #rightSide {
-            flex: 1;
             background-color: #f28e63;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
 
         h1 {
@@ -88,6 +131,17 @@
         #saveButton:hover {
             background-color: #d27657;
         }
+
+         #contentContainer {
+            display: flex;
+            height: inherit;
+            flex-direction: row; /* Align children side by side */
+        }
+
+        #leftSide, #rightSide {
+            flex-grow: 1; /* Allow both sides to grow equally */
+            /* Other styling remains unchanged */
+        }
     </style>
 </head>
 
@@ -99,6 +153,18 @@
     }
     </script>
 <body>
+     <div class="navbar">
+        <div class="menu">
+            <a href="AddMenu.aspx">Add Menu Item</a>
+            <a href="AddFoodCategory.aspx">Add Category</a>
+            <a href="ManageMenu.aspx">Manage Menu</a>
+            <a href="PaymentDetails.aspx">View Earnings</a>
+        </div>
+        <div class="sign-out">
+            <a href="LoginPage.aspx" style="float:right; background-color: red; padding: 10px 15px; border-radius: 4px; color: white; text-decoration: none;">Sign Out</a>
+        </div>
+    </div>
+    <div id="contentContainer">
      <div id="leftSide">
         <h1>Add Menu Item</h1>
     </div>
@@ -127,6 +193,7 @@
             </div>
             <div>
                 <button type="button" id="saveButton" runat="server" onserverclick="SaveMenuItem_Click">Save Menu Item</button>
+            </div>
             </div>
         </form>
     </div>

@@ -108,12 +108,14 @@
 <body>
     <div class="navbar">
         <div class="menu">
-            <a href="AddMenuItem.aspx">Add Menu Item</a>
-            <a href="AddCategory.aspx">Add Category</a>
+            <a href="AddMenu.aspx">Add Menu Item</a>
+            <a href="AddFoodCategory.aspx">Add Category</a>
             <a href="ManageMenu.aspx">Manage Menu</a>
+            <a href="PaymentDetails.aspx">View Earnings</a>
+
         </div>
-        <div class="sign-out">
-            <button onclick="signOut()">Sign Out</button>
+         <div class="sign-out">
+            <a href="LoginPage.aspx" style="float:right; background-color: red; padding: 10px 15px; border-radius: 4px; color: white; text-decoration: none;">Sign Out</a>
         </div>
     </div>
 

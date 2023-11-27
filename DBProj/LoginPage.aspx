@@ -79,6 +79,15 @@
         button:hover {
             background-color: #e668a7;
         }
+        button#registerButton {
+    background-color: #6cb2f7; /* Different color for registration button */
+    margin-top: 10px; /* Space between login and register buttons */
+}
+
+button#registerButton:hover {
+    background-color: #559edf; /* Hover effect */
+}
+
 
     </style>
 </head>
@@ -100,6 +109,12 @@
             <div>
                 <button type="button" id="loginButton" runat="server" onserverclick="Login_Click">Login</button>
             </div>
+            <div>
+<a href="CustomerRegistration.aspx" style="text-decoration: none; display: flex; justify-content: center; align-items: center; background-color: #6e8bf5; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; width: 100%; box-sizing: border-box;">
+    Register
+</a>
+
+           </div>
         </form>
     </div>
 </body>

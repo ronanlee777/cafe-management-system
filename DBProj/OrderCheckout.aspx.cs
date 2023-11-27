@@ -41,6 +41,9 @@ namespace DBProj
                 {
                     decimal totalPrice = dt.AsEnumerable().Sum(row => row.Field<decimal>("TotalPrice"));
                     lblTotalPrice.Text = $"Total Price: {totalPrice:C}";
+
+                    // Add loyalty points
+                    AddLoyaltyPoints(totalPrice);
                 }
             }
         }
@@ -54,6 +57,23 @@ namespace DBProj
             else
             {
                 lblUsername.Text = "Guest";
+            }
+        }
+
+        private void AddLoyaltyPoints(decimal totalPrice)
+        {
+            int userId = Convert.ToInt32(Session["UserId"]);
+            int loyaltyPoints = Convert.ToInt32(totalPrice / 10); // Loyalty points equal to total amount/10
+
+            string query = "INSERT INTO LoyaltyPoints (UserId, Points) VALUES (@UserId, @Points)";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@UserId", userId);
+                cmd.Parameters.AddWithValue("@Points", loyaltyPoints);
+                conn.Open();
+                cmd.ExecuteNonQuery();
             }
         }
     }
