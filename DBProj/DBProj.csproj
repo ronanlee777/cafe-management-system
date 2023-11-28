@@ -139,6 +139,7 @@
     <Content Include="PaymentDetails.aspx" />
     <Content Include="PlaceOrders.aspx" />
     <Content Include="Profile.aspx" />
+    <Content Include="RateService.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="ViewInventoryOrders.aspx" />
     <Content Include="Web.config" />
@@ -250,6 +251,13 @@
       <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RateService.aspx.cs">
+      <DependentUpon>RateService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RateService.aspx.designer.cs">
+      <DependentUpon>RateService.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

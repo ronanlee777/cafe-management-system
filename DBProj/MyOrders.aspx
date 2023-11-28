@@ -90,11 +90,11 @@
     <form runat="server">
    <div class="navbar">
         <div class="menu">
-            <a href="CustomerHomePage.aspx">Home</a>
+           <a href="CustomerHomePage.aspx">Home</a>
         <a href="PlaceOrders.aspx">Place Order</a>
         <a href="MyOrders.aspx">My Orders</a>
         <a href="Profile.aspx">Profile</a>
-        
+        <a href="RateService.aspx">Rate Service</a>
         </div>
         <div class="sign-out">
             <a href="LoginPage.aspx" style="float:right; background-color: red; padding: 10px 15px; border-radius: 4px; color: white; text-decoration: none;">Sign Out</a>

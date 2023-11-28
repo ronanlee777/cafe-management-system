@@ -112,6 +112,7 @@
         <a href="PlaceOrders.aspx">Place Order</a>
         <a href="MyOrders.aspx">My Orders</a>
         <a href="Profile.aspx">Profile</a>
+        <a href="RateService.aspx">Rate Service</a>
         
         </div>
         <div class="sign-out">
