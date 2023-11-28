@@ -112,6 +112,7 @@
             <a href="AddFoodCategory.aspx">Add Category</a>
             <a href="ManageMenu.aspx">Manage Menu</a>
             <a href="PaymentDetails.aspx">View Earnings</a>
+             <a href="InventoryHome.aspx">Inventory Home</a>
 
         </div>
          <div class="sign-out">

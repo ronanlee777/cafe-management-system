@@ -125,17 +125,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddFoodCategory.aspx" />
+    <Content Include="AddInventoryItem.aspx" />
     <Content Include="AddMenu.aspx" />
     <Content Include="CustomerHomePage.aspx" />
     <Content Include="CustomerRegistration.aspx" />
+    <Content Include="InventoryHome.aspx" />
     <Content Include="LoginPage.aspx" />
+    <Content Include="ManageInventory.aspx" />
     <Content Include="ManageMenu.aspx" />
     <Content Include="MyOrders.aspx" />
     <Content Include="OrderCheckout.aspx" />
+    <Content Include="OrderInventoryItem.aspx" />
     <Content Include="PaymentDetails.aspx" />
     <Content Include="PlaceOrders.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="Registration.aspx" />
+    <Content Include="ViewInventoryOrders.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +150,13 @@
     </Compile>
     <Compile Include="AddFoodCategory.aspx.designer.cs">
       <DependentUpon>AddFoodCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddInventoryItem.aspx.cs">
+      <DependentUpon>AddInventoryItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddInventoryItem.aspx.designer.cs">
+      <DependentUpon>AddInventoryItem.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddMenu.aspx.cs">
       <DependentUpon>AddMenu.aspx</DependentUpon>
@@ -167,12 +179,26 @@
     <Compile Include="CustomerRegistration.aspx.designer.cs">
       <DependentUpon>CustomerRegistration.aspx</DependentUpon>
     </Compile>
+    <Compile Include="InventoryHome.aspx.cs">
+      <DependentUpon>InventoryHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryHome.aspx.designer.cs">
+      <DependentUpon>InventoryHome.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageInventory.aspx.cs">
+      <DependentUpon>ManageInventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageInventory.aspx.designer.cs">
+      <DependentUpon>ManageInventory.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageMenu.aspx.cs">
       <DependentUpon>ManageMenu.aspx</DependentUpon>
@@ -194,6 +220,13 @@
     </Compile>
     <Compile Include="OrderCheckout.aspx.designer.cs">
       <DependentUpon>OrderCheckout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderInventoryItem.aspx.cs">
+      <DependentUpon>OrderInventoryItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderInventoryItem.aspx.designer.cs">
+      <DependentUpon>OrderInventoryItem.aspx</DependentUpon>
     </Compile>
     <Compile Include="PaymentDetails.aspx.cs">
       <DependentUpon>PaymentDetails.aspx</DependentUpon>
@@ -223,6 +256,13 @@
     </Compile>
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewInventoryOrders.aspx.cs">
+      <DependentUpon>ViewInventoryOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewInventoryOrders.aspx.designer.cs">
+      <DependentUpon>ViewInventoryOrders.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

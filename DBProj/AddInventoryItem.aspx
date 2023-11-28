@@ -1,8 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddFoodCategory.aspx.cs" Inherits="DBProj.AddFoodCategory" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddInventoryItem.aspx.cs" Inherits="DBProj.AddInventoryItem" %>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Food Category Addition</title>
+    <title>Add Inventory Item</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -10,7 +11,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            flex-direction: column; /* Updated to column layout */
+            flex-direction: column;
             height: 100vh;
         }
 
@@ -56,12 +57,22 @@
             background-color: #0056b3;
         }
 
+        #contentContainer {
+            display: flex;
+            height: inherit;
+            flex-direction: row;
+        }
+
+        #leftSide, #rightSide {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
         #leftSide {
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: white;
-            padding: 20px;
         }
 
         #rightSide {
@@ -70,7 +81,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 20px;
         }
 
         h1 {
@@ -97,9 +107,7 @@
             color: #f28e63;
         }
 
-        input[type="text"],
-        input[type="password"],
-        input[type="email"] {
+        input[type="text"], input[type="number"] {
             width: 100%;
             padding: 8px;
             border: 1px solid #ddd;
@@ -130,49 +138,41 @@
         #saveButton:hover {
             background-color: #d27657;
         }
-
-         #contentContainer {
-            display: flex;
-            height: inherit;
-            flex-direction: row; /* Align children side by side */
-        }
-
-        #leftSide, #rightSide {
-            flex-grow: 1; /* Allow both sides to grow equally */
-            /* Other styling remains unchanged */
-        }
     </style>
 </head>
-
 <body>
     <div class="navbar">
         <div class="menu">
             <a href="AddMenu.aspx">Add Menu Item</a>
             <a href="AddFoodCategory.aspx">Add Category</a>
             <a href="ManageMenu.aspx">Manage Menu</a>
+            <a href="AddInventoryItem.aspx">Add Inventory Item</a> <!-- New Link -->
             <a href="PaymentDetails.aspx">View Earnings</a>
-             <a href="InventoryHome.aspx">Inventory Home</a>
         </div>
         <div class="sign-out">
             <a href="LoginPage.aspx" style="float:right; background-color: red; padding: 10px 15px; border-radius: 4px; color: white; text-decoration: none;">Sign Out</a>
         </div>
     </div>
+
     <div id="contentContainer">
-    <div id="leftSide">
-        <h1>Add Food Category</h1>
-    </div>
-    <div id="rightSide">
-        <!-- Food Category Addition Form -->
-        <form id="foodCategoryForm" class="form-container" runat="server">
-            <div>
-                <label for="categoryName">Food Category Name:</label>
-                <input type="text" id="categoryName" runat="server" />
-            </div>
-            <div>
-                <button type="button" id="saveButton" runat="server" onserverclick="SaveCategory_Click" onclientclick="onSaveClicked()">Save Category</button>
-            </div>
-        </form>
-    </div>
+        <div id="leftSide">
+            <h1>Add Inventory Item</h1>
+        </div>
+        <div id="rightSide">
+            <form id="inventoryItemForm" class="form-container" runat="server">
+                <div>
+                    <label for="itemName">Item Name:</label>
+                    <input type="text" id="itemName" runat="server" />
+                </div>
+                <div>
+                    <label for="itemQuantity">Quantity:</label>
+                    <input type="number" id="itemQuantity" runat="server" />
+                </div>
+                <div>
+                    <button type="button" id="saveButton" runat="server" onserverclick="SaveInventoryItem_Click">Save Inventory Item</button>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>
