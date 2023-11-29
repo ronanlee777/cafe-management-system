@@ -21,7 +21,19 @@ namespace DBProj
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT OrderId, UserId, OrderDate, TotalAmount FROM Orders";
+                conn.Open();
+                // Modified SQL query with JOIN
+                string query = @"
+                    SELECT 
+                        O.OrderId, 
+                        U.Username, 
+                        O.OrderDate, 
+                        O.TotalAmount 
+                    FROM 
+                        Orders O
+                    INNER JOIN 
+                        Users U ON O.UserId = U.UserId";
+
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();

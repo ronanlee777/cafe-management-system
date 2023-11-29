@@ -152,6 +152,8 @@
             <a href="ManageMenu.aspx">Manage Menu</a>
             <a href="PaymentDetails.aspx">View Earnings</a>
              <a href="InventoryHome.aspx">Inventory Home</a>
+            <a href="ReportsHomePage.aspx">Reports Home</a>
+
         </div>
         <div class="sign-out">
             <a href="LoginPage.aspx" style="float:right; background-color: red; padding: 10px 15px; border-radius: 4px; color: white; text-decoration: none;">Sign Out</a>

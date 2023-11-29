@@ -155,6 +155,10 @@
                     <input type="number" id="quantityOrdered" runat="server" />
                 </div>
                 <div>
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" runat="server" />
+                </div>
+                <div>
                     <button type="button" id="saveButton" runat="server" onserverclick="OrderInventoryItem_Click">Order Item</button>
                 </div>
             </form>

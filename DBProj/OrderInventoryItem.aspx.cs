@@ -7,6 +7,7 @@ namespace DBProj
 {
     public partial class OrderInventoryItem : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -41,8 +42,13 @@ namespace DBProj
         {
             string connectionString = "Data Source=AHSANELITEBOOK\\SQLEXPRESS;Initial Catalog=WebApp;Integrated Security=True";
 
+            int itemID = int.Parse(ddlInventoryItems.SelectedValue);
             int quantity = Convert.ToInt32(quantityOrdered.Value);
-
+            int price = 0;
+            if (!string.IsNullOrEmpty(Request.Form["price"]))
+            {
+                price = Convert.ToInt32(Request.Form["price"]); // Correctly retrieving the price
+            }
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -54,18 +60,19 @@ namespace DBProj
                     string itemName = "";
                     using (SqlCommand cmdName = new SqlCommand(itemNameQuery, conn))
                     {
-                        cmdName.Parameters.AddWithValue("@itemID", ddlInventoryItems.SelectedValue);
+                        cmdName.Parameters.AddWithValue("@itemID", itemID);
                         itemName = (string)cmdName.ExecuteScalar();
                     }
 
                     // Insert the order details into InventoryStockOrders
-                    string query = "INSERT INTO InventoryStockOrders (ItemID, Name, QuantityOrdered, OrderDate) VALUES (@itemID, @name, @quantity, @orderDate)";
+                    string query = "INSERT INTO InventoryStockOrders (ItemID, Name, QuantityOrdered, Price, OrderDate) VALUES (@itemID, @name, @quantity, @price, @orderDate)";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@itemID", ddlInventoryItems.SelectedValue);
+                        cmd.Parameters.AddWithValue("@itemID", itemID);
                         cmd.Parameters.AddWithValue("@name", itemName);
                         cmd.Parameters.AddWithValue("@quantity", quantity);
+                        cmd.Parameters.AddWithValue("@price", price);
                         cmd.Parameters.AddWithValue("@orderDate", DateTime.Now);
 
                         cmd.ExecuteNonQuery();
@@ -75,6 +82,7 @@ namespace DBProj
                 // Clear form fields and show success message
                 ddlInventoryItems.SelectedIndex = 0;
                 quantityOrdered.Value = "";
+                //price.Text = ""; // Clearing the price field
 
                 ScriptManager.RegisterStartupScript(this, GetType(), "showAlert", "alert('Inventory Item Ordered');", true);
             }

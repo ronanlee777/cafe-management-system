@@ -110,13 +110,13 @@
             
                <div class="grid-view">
             <asp:GridView ID="GridViewPayments" runat="server" AutoGenerateColumns="False" CssClass="grid-view">
-                <Columns>
-                    <asp:BoundField DataField="OrderId" HeaderText="Order ID" />
-                    <asp:BoundField DataField="UserId" HeaderText="User ID" />
-                    <asp:BoundField DataField="OrderDate" HeaderText="Order Date" DataFormatString="{0:dd/MM/yyyy}" />
-                    <asp:BoundField DataField="TotalAmount" HeaderText="Total Amount" DataFormatString="{0:C}" />
-                </Columns>
-            </asp:GridView>
+    <Columns>
+        <asp:BoundField DataField="OrderId" HeaderText="Order ID" />
+        <asp:BoundField DataField="Username" HeaderText="Username" /> 
+        <asp:BoundField DataField="OrderDate" HeaderText="Order Date" DataFormatString="{0:dd/MM/yyyy}" />
+        <asp:BoundField DataField="TotalAmount" HeaderText="Total Amount" DataFormatString="{0:C}" />
+    </Columns>
+</asp:GridView>
         </div>
         <div class="total-earnings">
             <asp:Label ID="lblTotalEarnings" runat="server" Text="Total Earnings: $0.00"></asp:Label>

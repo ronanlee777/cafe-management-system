@@ -1,10 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ManageMenu.aspx.cs" Inherits="DBProj.ManageMenu" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProfitMargin.aspx.cs" Inherits="DBProj.ProfitMargin" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Manage Menu</title>
-    <style>
+    <title>Profit Margin Analysis</title>
+    <!-- Add any required CSS styling here -->
+        <style>
        body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -106,73 +107,37 @@
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <div class="menu">
+                  <div class="navbar">
+        <!-- Navbar content -->
+            <div class="menu">
             <a href="AddMenu.aspx">Add Menu Item</a>
             <a href="AddFoodCategory.aspx">Add Category</a>
             <a href="ManageMenu.aspx">Manage Menu</a>
             <a href="PaymentDetails.aspx">View Earnings</a>
              <a href="InventoryHome.aspx">Inventory Home</a>
             <a href="ReportsHomePage.aspx">Reports Home</a>
+
         </div>
          <div class="sign-out">
             <a href="LoginPage.aspx" style="float:right; background-color: red; padding: 10px 15px; border-radius: 4px; color: white; text-decoration: none;">Sign Out</a>
         </div>
     </div>
+    <form runat="server">
+         <div class="centered-content">
+            <h1>Total Profits</h1>
 
-    <div class="centered-content">
-        <h1>Manage Menu</h1>
+        <asp:GridView ID="GridViewProfitMargins" runat="server" AutoGenerateColumns="False">
+             <Columns>
+                <asp:BoundField DataField="ItemId" HeaderText="Item ID" />
+                <asp:BoundField DataField="MenuItem" HeaderText="Menu Item" />
+                <asp:BoundField DataField="TotalSalesRevenue" HeaderText="Total Sales Revenue" DataFormatString="{0:C}" />
+                <asp:BoundField DataField="TotalInventoryCost" HeaderText="Total Inventory Cost" DataFormatString="{0:C}" />
+                <asp:BoundField DataField="TotalProfit" HeaderText="Total Profit" DataFormatString="{0:C}" />
+            </Columns>
+        </asp:GridView>
+          <asp:Label ID="lblTotalProfit" runat="server" CssClass="total-profit-label"></asp:Label>
 
-        <div class="search-container">
-            <input type="text" id="searchBox" onkeyup="searchItems()" placeholder="Search for items..." />
         </div>
-
-        <form id="form1" runat="server">
-            <asp:GridView ID="GridViewMenuItems" runat="server" CssClass="grid-view" AutoGenerateColumns="False" 
-                DataKeyNames="ItemId"
-                OnRowEditing="GridViewMenuItems_RowEditing" 
-                OnRowDeleting="GridViewMenuItems_RowDeleting" 
-                OnRowUpdating="GridViewMenuItems_RowUpdating" 
-                OnRowCancelingEdit="GridViewMenuItems_RowCancelingEdit">
-                <Columns>
-                    <asp:BoundField DataField="ItemId" HeaderText="Item ID" ReadOnly="True" />
-                    <asp:BoundField DataField="Name" HeaderText="Name" />
-                    <asp:BoundField DataField="Description" HeaderText="Description" />
-                    <asp:BoundField DataField="Price" HeaderText="Price" />
-                    <asp:BoundField DataField="NutritionalInfo" HeaderText="Nutritional Info" />
-                    <asp:CommandField ShowEditButton="True" />
-                    <asp:CommandField ShowDeleteButton="True" />
-                </Columns>
-            </asp:GridView>
-        </form>
-
-        <button id="saveButton" onclick="showSavedMessage()">Save Changes</button>
-    </div>
-
-    <script type="text/javascript">
-        function showSavedMessage() {
-            alert("Changes saved!");
-        }
-
-        function searchItems() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("searchBox");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("<%=GridViewMenuItems.ClientID %>");
-            tr = table.getElementsByTagName("tr");
-
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1]; // Assumes Name is the second column
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-    </script>
+    </form>
 </body>
 </html>

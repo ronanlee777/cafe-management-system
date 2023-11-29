@@ -1,10 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ManageMenu.aspx.cs" Inherits="DBProj.ManageMenu" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CustomerOrderDetails.aspx.cs" Inherits="DBProj.CustomerOrderDetails" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Manage Menu</title>
-    <style>
+    <title>Customer Order Details</title>
+    <!-- Existing styles here -->
+     <style>
        body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -106,73 +107,38 @@
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <div class="menu">
+    <form runat="server">
+        <div class="navbar">
+            <div class="menu">
             <a href="AddMenu.aspx">Add Menu Item</a>
             <a href="AddFoodCategory.aspx">Add Category</a>
             <a href="ManageMenu.aspx">Manage Menu</a>
             <a href="PaymentDetails.aspx">View Earnings</a>
              <a href="InventoryHome.aspx">Inventory Home</a>
-            <a href="ReportsHomePage.aspx">Reports Home</a>
+<a href="ReportsHomePage.aspx">Reports Home</a>
+
         </div>
          <div class="sign-out">
             <a href="LoginPage.aspx" style="float:right; background-color: red; padding: 10px 15px; border-radius: 4px; color: white; text-decoration: none;">Sign Out</a>
         </div>
-    </div>
-
-    <div class="centered-content">
-        <h1>Manage Menu</h1>
-
-        <div class="search-container">
-            <input type="text" id="searchBox" onkeyup="searchItems()" placeholder="Search for items..." />
+            <!-- Navbar content -->
         </div>
 
-        <form id="form1" runat="server">
-            <asp:GridView ID="GridViewMenuItems" runat="server" CssClass="grid-view" AutoGenerateColumns="False" 
-                DataKeyNames="ItemId"
-                OnRowEditing="GridViewMenuItems_RowEditing" 
-                OnRowDeleting="GridViewMenuItems_RowDeleting" 
-                OnRowUpdating="GridViewMenuItems_RowUpdating" 
-                OnRowCancelingEdit="GridViewMenuItems_RowCancelingEdit">
+        <div class="centered-content">
+            <h1>My Orders</h1>
+            <asp:GridView ID="GridViewOrders" runat="server" CssClass="grid-view" AutoGenerateColumns="False">
                 <Columns>
-                    <asp:BoundField DataField="ItemId" HeaderText="Item ID" ReadOnly="True" />
-                    <asp:BoundField DataField="Name" HeaderText="Name" />
-                    <asp:BoundField DataField="Description" HeaderText="Description" />
+                    <asp:BoundField DataField="OrderId" HeaderText="Order ID" />
+                    <asp:BoundField DataField="Username" HeaderText="Customer Name" />
+                    <asp:BoundField DataField="OrderDate" HeaderText="Order Date" DataFormatString="{0:d}" />
+                    <asp:BoundField DataField="MenuItem" HeaderText="Item" />
+                    <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
                     <asp:BoundField DataField="Price" HeaderText="Price" />
-                    <asp:BoundField DataField="NutritionalInfo" HeaderText="Nutritional Info" />
-                    <asp:CommandField ShowEditButton="True" />
-                    <asp:CommandField ShowDeleteButton="True" />
+                    <asp:BoundField DataField="TotalItemCost" HeaderText="Total Item Cost" />
+                    <asp:BoundField DataField="TotalAmount" HeaderText="Total Order Amount" DataFormatString="{0:C}" />
                 </Columns>
             </asp:GridView>
-        </form>
-
-        <button id="saveButton" onclick="showSavedMessage()">Save Changes</button>
-    </div>
-
-    <script type="text/javascript">
-        function showSavedMessage() {
-            alert("Changes saved!");
-        }
-
-        function searchItems() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("searchBox");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("<%=GridViewMenuItems.ClientID %>");
-            tr = table.getElementsByTagName("tr");
-
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1]; // Assumes Name is the second column
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-    </script>
+        </div>
+    </form>
 </body>
 </html>
