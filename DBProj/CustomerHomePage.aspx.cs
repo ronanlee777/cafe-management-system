@@ -14,7 +14,7 @@ namespace DBProj
         {
             if (!IsPostBack)
             {
-                string username = Session["Username"] != null ? Session["Username"].ToString() : "Guest";
+                string username = Session["Username"] != null ? Session["Username"].ToString() : DefaultCustomerName;
                 LoadCustomerDetails(username);
             }
         }
@@ -27,18 +27,32 @@ namespace DBProj
                 {
                     conn.Open();
 
-                    // Check if the connection is successful
                     if (conn.State == ConnectionState.Open)
                     {
-                        // Adjust the query to select the 'userame' column associated with the username
-                        string query = "SELECT Username FROM Users WHERE Username = @username";
+                        // Nested subquery to get total loyalty points for the user
+                        string query = @"
+                            SELECT Username, 
+                            (SELECT SUM(Points) FROM LoyaltyPoints WHERE UserId = u.UserId) AS TotalPoints
+                            FROM Users u WHERE Username = @username";
 
                         using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
                             cmd.Parameters.AddWithValue("@username", username);
 
-                            object result = cmd.ExecuteScalar();
-                            lblCustomerName.Text = result != null ? $" {result.ToString()}" : DefaultCustomerName;
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    string customerName = reader["Username"].ToString();
+                                    int totalPoints = reader["TotalPoints"] != DBNull.Value ? Convert.ToInt32(reader["TotalPoints"]) : 0;
+                                    lblCustomerName.Text = $"{customerName}";
+                                    lblPoints.Text =  $"{totalPoints}";
+                                }
+                                else
+                                {
+                                    lblCustomerName.Text = DefaultCustomerName;
+                                }
+                            }
                         }
                     }
                     else
@@ -59,8 +73,7 @@ namespace DBProj
 
         private void HandleException(Exception ex)
         {
-            // Log the exception details for debugging
-            // Log.Error($"An error occurred: {ex.Message}", ex);
+            // Error handling logic
             lblCustomerName.Text = $"Error loading details. Exception: {ex.Message}";
         }
     }

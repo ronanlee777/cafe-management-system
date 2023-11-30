@@ -22,7 +22,16 @@ namespace DBProj
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT OrderId, OrderDate, TotalAmount FROM Orders WHERE UserId = @UserId";
+                conn.Open();
+                string query = @"
+                    SELECT o.OrderId, o.OrderDate, o.TotalAmount, 
+                           od.ItemId, mi.Name AS ItemName, od.Quantity, od.Price
+                    FROM Orders o
+                    JOIN OrderDetails od ON o.OrderId = od.OrderId
+                    JOIN MenuItems mi ON od.ItemId = mi.ItemId
+                    WHERE o.UserId = @UserId
+                    ORDER BY o.OrderId";
+
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@UserId", userId);
 

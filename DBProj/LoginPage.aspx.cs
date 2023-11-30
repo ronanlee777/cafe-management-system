@@ -46,7 +46,11 @@ namespace DBProj
                                     case 3: // Customer
                                         Response.Redirect("PlaceOrders.aspx");
                                         break;
-                                        // Handle other roles
+                                    case 4: // manager
+                                        Response.Redirect("InventoryHome.aspx");
+                                        break;
+
+                                        
                                 }
                             }
                             else

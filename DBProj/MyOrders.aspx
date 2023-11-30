@@ -105,10 +105,13 @@
         <h1>My Orders</h1>
         <asp:GridView ID="GridViewOrders" runat="server" CssClass="grid-view" AutoGenerateColumns="False">
             <Columns>
-                <asp:BoundField DataField="OrderId" HeaderText="Order ID" />
-                <asp:BoundField DataField="OrderDate" HeaderText="Order Date" DataFormatString="{0:d}" />
-                <asp:BoundField DataField="TotalAmount" HeaderText="Total Amount" DataFormatString="{0:C}" />
-            </Columns>
+        <asp:BoundField DataField="OrderId" HeaderText="Order ID" />
+        <asp:BoundField DataField="OrderDate" HeaderText="Order Date" DataFormatString="{0:d}" />
+        <asp:BoundField DataField="TotalAmount" HeaderText="Total Amount" DataFormatString="{0:C}" />
+        <asp:BoundField DataField="ItemName" HeaderText="Item Name" />
+        <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
+        <asp:BoundField DataField="Price" HeaderText="Price" DataFormatString="{0:C}" />
+    </Columns>
         </asp:GridView>
     </div>
         </form>

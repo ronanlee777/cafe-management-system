@@ -25,16 +25,32 @@ namespace DBProj
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "INSERT INTO CustomerRatings (UserID, Rating, Comments) VALUES (@UserId, @Rating, @Comments)";
+                string query = @"
+                    IF NOT EXISTS (
+                        SELECT 1 FROM CustomerRatings 
+                        WHERE UserID = @UserId
+                    )
+                    BEGIN
+                        INSERT INTO CustomerRatings (UserID, Rating, Comments) 
+                        VALUES (@UserId, @Rating, @Comments)
+                    END";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@UserId", userId);
                 cmd.Parameters.AddWithValue("@Rating", rating);
                 cmd.Parameters.AddWithValue("@Comments", comments);
 
-                cmd.ExecuteNonQuery();
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected == 0)
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('You have already rated.');", true);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Rating Saved');", true);
+                }
             }
-            ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Rating Saved');", true);
 
             // Optional: Code to handle after successful submission, like showing a message or redirecting.
         }

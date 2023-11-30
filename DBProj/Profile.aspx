@@ -125,6 +125,7 @@
         <p>User ID: <asp:Label ID="lblUserId" runat="server"></asp:Label></p>
         <p>Username: <asp:Label ID="lblUsername" runat="server"></asp:Label></p>
         <p>Password: <asp:Label ID="lblPassword" runat="server"></asp:Label></p>
+      <p>Total Orders: <asp:Label ID="lblTotalOrders" runat="server"></asp:Label></p>
         <p>Loyalty Points: <asp:Label ID="lblLoyaltyPoints" runat="server"></asp:Label></p>
     </div>
         </div>

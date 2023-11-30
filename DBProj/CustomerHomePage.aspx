@@ -17,6 +17,11 @@
             color: #ff6a00;
             margin-top: 150px;
         }
+
+          h2 {
+            color: #ff6a00;
+            margin-top: 30px;
+        }
         .navbar {
             background-color: #f28e63; /* Updated color for consistency */
             overflow: hidden;
@@ -75,7 +80,7 @@
     </div>
 
     <h1>Welcome <asp:Label ID="lblCustomerName" runat="server"></asp:Label></h1>
-
+    <h2>Total Points <asp:Label ID="lblPoints" runat="server"></asp:Label></h2>
     <div class="button-container">
 
         <button onclick="window.location.href='PlaceOrders.aspx'">Place Order</button>

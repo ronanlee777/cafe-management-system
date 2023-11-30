@@ -21,12 +21,16 @@ namespace DBProj
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "SELECT * FROM Inventory";
+                string query = @"
+            SELECT i.ItemID, i.Name, i.Quantity, iso.OrderDate, iso.QuantityOrdered 
+            FROM Inventory i
+            LEFT JOIN InventoryStockOrders iso ON i.ItemID = iso.ItemID";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 GridViewInventory.DataSource = cmd.ExecuteReader();
                 GridViewInventory.DataBind();
             }
         }
+
 
         protected void GridViewInventory_RowEditing(object sender, GridViewEditEventArgs e)
         {

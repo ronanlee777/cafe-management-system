@@ -17,6 +17,7 @@
         #leftSide {
             flex: 1;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             background-color: white;
@@ -83,11 +84,15 @@
     </style>
 </head>
 <body>
-    <div id="leftSide">
-        <h1>Customer Registration</h1>
+      <div id="leftSide">
+            <img src="images/picture.png" style="width: 40%; max-width: 250px; height: auto; margin-right: 20px;" />
+
+        <h1>CampusBites</h1>
     </div>
     <div id="rightSide">
-        <!-- Customer Registration Form -->
+        <!-- Login Form -->
+        <h1 style="color: aliceblue">Registeration Form</h1>
+     
         <form id="customerRegistrationForm" class="form-container" runat="server">
             <div>
                 <label for="username">Username:</label>

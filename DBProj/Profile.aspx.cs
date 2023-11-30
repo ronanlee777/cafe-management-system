@@ -44,11 +44,21 @@ namespace DBProj
                     }
                 }
 
-                // Fetch loyalty points
-                string pointsQuery = "SELECT SUM(Points) AS TotalPoints FROM LoyaltyPoints WHERE UserId = @UserId";
+                // Nested subquery 1: Fetch total number of orders
+                string ordersQuery = @"
+                    SELECT COUNT(*) FROM Orders 
+                    WHERE UserId = (SELECT UserId FROM Users WHERE UserId = @UserId)";
+                SqlCommand ordersCmd = new SqlCommand(ordersQuery, conn);
+                ordersCmd.Parameters.AddWithValue("@UserId", userId);
+                int totalOrders = (int)ordersCmd.ExecuteScalar();
+                lblTotalOrders.Text = totalOrders.ToString(); // Assuming lblTotalOrders exists
+
+                // Nested subquery 2: Fetch total loyalty points
+                string pointsQuery = @"
+                    SELECT SUM(Points) FROM LoyaltyPoints 
+                    WHERE UserId = (SELECT UserId FROM Users WHERE UserId = @UserId)";
                 SqlCommand pointsCmd = new SqlCommand(pointsQuery, conn);
                 pointsCmd.Parameters.AddWithValue("@UserId", userId);
-
                 object totalPoints = pointsCmd.ExecuteScalar();
                 lblLoyaltyPoints.Text = totalPoints != DBNull.Value ? totalPoints.ToString() : "0";
             }
