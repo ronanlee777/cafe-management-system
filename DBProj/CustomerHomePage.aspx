@@ -23,7 +23,7 @@
             margin-top: 30px;
         }
         .navbar {
-            background-color: #f28e63; /* Updated color for consistency */
+            background-color: #f05656; /* Updated color for consistency */
             overflow: hidden;
         }
 

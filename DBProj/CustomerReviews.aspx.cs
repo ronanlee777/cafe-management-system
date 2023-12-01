@@ -33,16 +33,11 @@ namespace DBProj
             {
                 conn.Open();
                 string query = $@"
-                    SELECT 
-                        U.Username AS CustomerName,
-                        CR.Rating AS CustomerRating,
-                        CR.Comments AS Comments
-                    FROM 
-                        Users U
-                    INNER JOIN 
-                        CustomerRatings CR ON U.UserId = CR.UserID
-                    ORDER BY 
-                        CR.Rating {sortOrder};";
+                   SELECT U.Username AS CustomerName, CR.Rating AS CustomerRating, CR.Comments AS Comments
+                    FROM Users U
+                    INNER JOIN CustomerRatings CR ON U.UserId = CR.UserID
+                    ORDER BY CR.Rating {sortOrder};
+                    ";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 

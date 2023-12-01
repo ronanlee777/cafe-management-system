@@ -24,20 +24,13 @@ namespace DBProj
             {
                 conn.Open();
                 string query = @"
-                    SELECT 
-                        MI.ItemId,
-                        MI.Name AS MenuItem,
-                        SUM(OD.Quantity * OD.Price) AS TotalSalesRevenue,
+                    SELECT  MI.ItemId, MI.Name AS MenuItem, SUM(OD.Quantity * OD.Price) AS TotalSalesRevenue,
                         (SELECT SUM(Price * QuantityOrdered) FROM InventoryStockOrders) AS TotalInventoryCost,
                         SUM(OD.Quantity * OD.Price) - (SELECT SUM(Price * QuantityOrdered) FROM InventoryStockOrders) AS TotalProfit
-                    FROM 
-                        MenuItems MI
-                    JOIN 
-                        OrderDetails OD ON MI.ItemId = OD.ItemId
-                    JOIN 
-                        Orders O ON OD.OrderId = O.OrderId
-                    GROUP BY 
-                        MI.ItemId, MI.Name;";
+                    FROM  MenuItems MI
+                    JOIN  OrderDetails OD ON MI.ItemId = OD.ItemId
+                    JOIN Orders O ON OD.OrderId = O.OrderId
+                    GROUP BY MI.ItemId, MI.Name;";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataReader reader = cmd.ExecuteReader();

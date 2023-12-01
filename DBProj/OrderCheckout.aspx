@@ -14,7 +14,7 @@
         }
 
         .navbar {
-            background-color: #f28e63;
+            background-color: #f05656;
             overflow: hidden;
             display: flex;
             justify-content: space-between;
@@ -69,7 +69,7 @@
         }
 
         .grid-view th {
-            background-color: #f28e63; /* Header background color */
+            background-color: #f05656;/* Header background color */
             color: white; /* Header text color */
             padding: 10px; /* Header padding */
         }
@@ -105,12 +105,26 @@
             background-color: #d27657;
         }
 
-        #lblTotal {
-            margin-top: 50px;
-            font-size: 30px; /* Increased font size for better visibility */
-            color: red; /* Set the color for better visibility, you can adjust as needed */
-        }
-    </style>
+  
+     .custom-button {
+        background-color: #f05656;
+        color: white;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        transition: background-color 0.3s ease; 
+
+       
+    }
+
+    .custom-button:hover {
+        background-color: #d43f3f; 
+       
+    }
+</style>
+
+
+        
 </head>
 <body>
     <form runat="server">
@@ -129,7 +143,7 @@
     </div>
         <div class="centered-content">
             <h1>Order Checkout</h1>
-            <h2>Welcome, <asp:Label ID="lblUsername" runat="server"></asp:Label></h2>
+            <h2> <asp:Label ID="lblUsername" runat="server"></asp:Label></h2>
             <asp:GridView ID="GridViewOrderDetails" runat="server" CssClass="grid-view" AutoGenerateColumns="False">
                 <Columns>
                     <asp:BoundField DataField="ItemName" HeaderText="Item" />
@@ -138,9 +152,11 @@
                     <asp:BoundField DataField="TotalPrice" HeaderText="Total Price" DataFormatString="{0:C}" />
                 </Columns>
             </asp:GridView>
+
             <asp:Label ID="lblTotalPrice" runat="server" Text="Total Price: $0.00"></asp:Label>
+            <br />
             <!-- Place Order Button -->
-<asp:Button ID="btnPlaceOrder" runat="server" Text="Place Order" OnClientClick="placeOrderAndRedirect(); return false;" />
+<asp:Button ID="btnPlaceOrder" runat="server" Text="Place Order" OnClientClick="placeOrderAndRedirect(); return false;" CssClass="custom-button" />
 
 <script type="text/javascript">
     function placeOrderAndRedirect() {

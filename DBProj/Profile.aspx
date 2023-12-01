@@ -13,7 +13,7 @@
         }
 
                .navbar {
-            background-color: #f28e63;
+            background-color:  #f05656;
             overflow: hidden;
             display: flex;
             justify-content: space-between;

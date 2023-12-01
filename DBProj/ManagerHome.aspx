@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ReportsHomePage.aspx.cs" Inherits="DBProj.ReportsHomePage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ManagerHome.aspx.cs" Inherits="DBProj.ManagerHome" %>
+
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -63,26 +64,27 @@
 <body>
    <div class="navbar">
         <div class="menu">
-               <a href="ManagerHome.aspx">Manager Home</a>
+            <a href="ManagerHome.aspx">Manager Home</a>
             <a href="ManageMenu.aspx">Manage Menu</a>
             <a href="PaymentDetails.aspx">View Earnings</a>
              <a href="InventoryHome.aspx">Inventory</a>
              <a href="ReportsHomePage.aspx">Reports</a>
+
         </div>
         <div class="sign-out">
             <a href="LoginPage.aspx" style="float:right; background-color: red; padding: 10px 15px; border-radius: 4px; color: white; text-decoration: none;">Sign Out</a>
         </div>
     </div>
 
-    <h1>Reports Dashboard</h1>
+    <h1>Manager Dashboard</h1>
 
     <div class="button-container">
-        <button onclick="window.location.href='PaymentDetails.aspx'">Payment Details</button>
+        <button onclick="window.location.href='AddMenu.aspx'">Add Menu</button>
         <button onclick="window.location.href='MostSellingCategory.aspx'">Most Selling Category</button>
-        <button onclick="window.location.href='MostSellingItems.aspx'">Most Selling Items</button>
-        <button onclick="window.location.href='CustomerOrderDetails.aspx'">Customer Order Details</button>
-        <button onclick="window.location.href='CustomerReviews.aspx'">Customer Reviews</button>
-        <button onclick="window.location.href='ProfitMargin.aspx'">Profit Margin Analysis</button>
+        <button onclick="window.location.href='AddFoodCategory.aspx'">Add Food Category</button>
+        <button onclick="window.location.href='ManageMenu.aspx'">Manage Menu</button>
+        <button onclick="window.location.href='InventoryHome.aspx'">Inventory</button>
+        <button onclick="window.location.href='ReportsHomePage.aspx'">Reports</button>
     </div>
 </body>
 </html>

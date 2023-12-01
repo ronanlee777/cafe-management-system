@@ -38,7 +38,7 @@ namespace DBProj
                                 switch (roleId)
                                 {
                                     case 1: // Admin
-                                        Response.Redirect("ManageMenu.aspx");
+                                        Response.Redirect("ManagerHome.aspx");
                                         break;
                                     case 2: // cashier
                                         Response.Redirect("PaymentDetails.aspx");

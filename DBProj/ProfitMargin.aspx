@@ -4,9 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Profit Margin Analysis</title>
-    <!-- Add any required CSS styling here -->
-        <style>
-       body {
+    <style>
+            body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
@@ -42,54 +41,40 @@
             margin-right: 20px;
         }
 
-        .navbar button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .navbar button:hover {
-            background-color: #0056b3;
-        }
-
         .centered-content {
-            text-align: center;
+                       text-align: center;
             margin: 20px;
         }
 
-             /* GridView Table Styling */
         .grid-view {
             margin: auto;
             width: auto;
             padding: 20px;
-            border-collapse: collapse; /* Collapses border spacing */
+            border-collapse: collapse;
         }
 
         .grid-view th {
-            background-color: #f28e63; /* Header background color */
-            color: white; /* Header text color */
-            padding: 10px; /* Header padding */
+            background-color: #f28e63;
+            color: white;
+            padding: 10px;
         }
 
         .grid-view td {
-            padding: 10px; /* Cell padding */
-            border: 1px solid #ddd; /* Cell border */
+            padding: 10px;
+            border: 1px solid #ddd;
         }
 
         .grid-view tr:nth-child(even) {
-            background-color: #f2f2f2; /* Zebra-striping for rows */
+            background-color: #f2f2f2;
         }
 
         .grid-view tr:hover {
-            background-color: #ddd; /* Hover effect for rows */
+            background-color: #ddd;
         }
 
-        .search-container {
-            margin-bottom: 20px;
-        }
+        .total-profit-label-margin {
+        margin-top: 40px; 
+    }
 
         #saveButton {
             background-color: #f28e63;
@@ -110,12 +95,11 @@
                   <div class="navbar">
         <!-- Navbar content -->
             <div class="menu">
-            <a href="AddMenu.aspx">Add Menu Item</a>
-            <a href="AddFoodCategory.aspx">Add Category</a>
+               <a href="ManagerHome.aspx">Manager Home</a>
             <a href="ManageMenu.aspx">Manage Menu</a>
             <a href="PaymentDetails.aspx">View Earnings</a>
-             <a href="InventoryHome.aspx">Inventory Home</a>
-            <a href="ReportsHomePage.aspx">Reports Home</a>
+             <a href="InventoryHome.aspx">Inventory</a>
+             <a href="ReportsHomePage.aspx">Reports</a>
 
         </div>
          <div class="sign-out">
@@ -126,7 +110,7 @@
          <div class="centered-content">
             <h1>Total Profits</h1>
 
-        <asp:GridView ID="GridViewProfitMargins" runat="server" AutoGenerateColumns="False">
+<asp:GridView ID="GridViewProfitMargins" runat="server" AutoGenerateColumns="False" CssClass="grid-view">
              <Columns>
                 <asp:BoundField DataField="ItemId" HeaderText="Item ID" />
                 <asp:BoundField DataField="MenuItem" HeaderText="Menu Item" />
@@ -135,7 +119,8 @@
                 <asp:BoundField DataField="TotalProfit" HeaderText="Total Profit" DataFormatString="{0:C}" />
             </Columns>
         </asp:GridView>
-          <asp:Label ID="lblTotalProfit" runat="server" CssClass="total-profit-label"></asp:Label>
+            <br > </br>
+<asp:Label ID="lblTotalProfit" runat="server" CssClass="total-profit-label" style="margin-top: 100px;"></asp:Label>
 
         </div>
     </form>

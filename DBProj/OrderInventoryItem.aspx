@@ -130,11 +130,11 @@
 <body>
     <div class="navbar">
         <div class="menu">
-            <a href="AddMenu.aspx">Add Menu Item</a>
-            <a href="AddFoodCategory.aspx">Add Category</a>
+              <a href="ManagerHome.aspx">Manager Home</a>
             <a href="ManageMenu.aspx">Manage Menu</a>
-            <a href="OrderInventoryItem.aspx">Order Inventory Item</a>
             <a href="PaymentDetails.aspx">View Earnings</a>
+             <a href="InventoryHome.aspx">Inventory</a>
+             <a href="ReportsHomePage.aspx">Reports</a>
         </div>
         <div class="sign-out">
             <a href="LoginPage.aspx" style="float:right; background-color: red; padding: 10px 15px; border-radius: 4px; color: white; text-decoration: none;">Sign Out</a>

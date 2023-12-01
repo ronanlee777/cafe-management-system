@@ -23,21 +23,14 @@ namespace DBProj
             {
                 conn.Open();
                 string query = @"
-                    SELECT 
-                        FC.Name AS CategoryName,
-                        SUM(OD.Quantity * OD.Price) AS TotalRevenue
-                    FROM 
-                        FoodCategories FC
-                    INNER JOIN 
-                        MenuItems MI ON FC.CategoryId = MI.CategoryId
-                    INNER JOIN 
-                        OrderDetails OD ON MI.ItemId = OD.ItemId
-                    INNER JOIN 
-                        Orders O ON OD.OrderId = O.OrderId
-                    GROUP BY 
-                        FC.Name
-                    ORDER BY 
-                        TotalRevenue DESC;";
+                   SELECT FC.Name AS CategoryName, SUM(OD.Quantity * OD.Price) AS TotalRevenue
+                    FROM FoodCategories FC
+                    INNER JOIN MenuItems MI ON FC.CategoryId = MI.CategoryId
+                    INNER JOIN OrderDetails OD ON MI.ItemId = OD.ItemId
+                    INNER JOIN Orders O ON OD.OrderId = O.OrderId
+                    GROUP BY FC.Name
+                    ORDER BY TotalRevenue DESC;
+                    ";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 

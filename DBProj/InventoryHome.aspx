@@ -61,13 +61,11 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="AddMenu.aspx">Add Menu Item</a>
-            <a href="AddFoodCategory.aspx">Add Category</a>
+           <a href="ManagerHome.aspx">Manager Home</a>
             <a href="ManageMenu.aspx">Manage Menu</a>
             <a href="PaymentDetails.aspx">View Earnings</a>
-        <a href="InventoryHome.aspx">Inventory Home</a>
-        <a href="LoginPage.aspx" style="float:right; background-color: red; padding: 10px 15px; border-radius: 4px; color: white; text-decoration: none;">Sign Out</a>
-    </div>
+             <a href="InventoryHome.aspx">Inventory</a>
+             <a href="ReportsHomePage.aspx">Reports</a>  </div>
 
     <h1>Inventory Management</h1>
 

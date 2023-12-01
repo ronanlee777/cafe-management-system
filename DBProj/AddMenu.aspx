@@ -155,12 +155,11 @@
 <body>
      <div class="navbar">
         <div class="menu">
-            <a href="AddMenu.aspx">Add Menu Item</a>
-            <a href="AddFoodCategory.aspx">Add Category</a>
+              <a href="ManagerHome.aspx">Manager Home</a>
             <a href="ManageMenu.aspx">Manage Menu</a>
             <a href="PaymentDetails.aspx">View Earnings</a>
-             <a href="InventoryHome.aspx">Inventory Home</a>
-            <a href="ReportsHomePage.aspx">Reports Home</a>
+             <a href="InventoryHome.aspx">Inventory</a>
+             <a href="ReportsHomePage.aspx">Reports</a>
 
         </div>
         <div class="sign-out">

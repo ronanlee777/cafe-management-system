@@ -15,7 +15,7 @@
         }
 
         .navbar {
-            background-color: #f28e63;
+            background-color:  #f05656;
             overflow: hidden;
             display: flex;
             justify-content: space-between;
@@ -61,16 +61,16 @@
             margin: 20px;
         }
 
-             /* GridView Table Styling */
+            
         .grid-view {
             margin: auto;
             width: auto;
             padding: 20px;
-            border-collapse: collapse; /* Collapses border spacing */
+            border-collapse: collapse; 
         }
 
         .grid-view th {
-            background-color: #f28e63; /* Header background color */
+            background-color:  #f05656;
             color: white; /* Header text color */
             padding: 10px; /* Header padding */
         }
@@ -111,6 +111,19 @@
             font-size: 30px; /* Increased font size for better visibility */
             color: red; /* Set the color for better visibility, you can adjust as needed */
         }
+
+         .custom-button {
+        background-color: #f05656;
+        color: white;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .custom-button:hover {
+        background-color: #d43f3f;
+    }
     </style>
     
 </head>
@@ -154,8 +167,8 @@
             <br />
             <asp:Label ID="lblTotal" runat="server" Text="Total: 0.00"></asp:Label>
             <asp:HiddenField ID="hiddenTotal" runat="server" Value="0" />
-            <asp:Button ID="btnCheckout" runat="server" Text="Checkout" OnClick="btnCheckout_Click" />
-
+           <br> </br>
+<asp:Button ID="btnCheckout" runat="server" Text="Checkout" OnClick="btnCheckout_Click" CssClass="custom-button" />
         </div>
     </form>
      <!-- JavaScript for search functionality -->

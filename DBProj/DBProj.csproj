@@ -136,6 +136,7 @@
     <Content Include="LoginPage.aspx" />
     <Content Include="ManageInventory.aspx" />
     <Content Include="ManageMenu.aspx" />
+    <Content Include="ManagerHome.aspx" />
     <Content Include="MostSellingCategory.aspx" />
     <Content Include="MostSellingItems.aspx" />
     <Content Include="MyOrders.aspx" />
@@ -228,6 +229,13 @@
     </Compile>
     <Compile Include="ManageMenu.aspx.designer.cs">
       <DependentUpon>ManageMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerHome.aspx.cs">
+      <DependentUpon>ManagerHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManagerHome.aspx.designer.cs">
+      <DependentUpon>ManagerHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="MostSellingCategory.aspx.cs">
       <DependentUpon>MostSellingCategory.aspx</DependentUpon>
