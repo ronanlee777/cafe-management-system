@@ -21,7 +21,9 @@ namespace DBProj
         private void LoadOrderDetails()
         {
             int orderId = Convert.ToInt32(Session["CurrentOrderId"]);
-            string query = "SELECT mi.Name as ItemName, od.Quantity, mi.Price, (od.Quantity * mi.Price) as TotalPrice FROM OrderDetails od INNER JOIN MenuItems mi ON od.ItemId = mi.ItemId WHERE od.OrderId = @OrderId";
+            string query = "SELECT mi.Name as ItemName, od.Quantity, mi.Price, (od.Quantity * mi.Price) as TotalPrice FROM OrderDetails od " +
+                "INNER JOIN MenuItems mi ON od.ItemId = mi.ItemId" +
+                " WHERE od.OrderId = @OrderId";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
